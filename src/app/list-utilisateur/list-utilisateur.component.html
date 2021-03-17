@@ -1,0 +1,42 @@
+<h1 style="text-align: center;color: #2196F3">Home </h1>
+<div class="container">
+  <div class="form-group">
+
+    <label class="form-label" for="customFile">Choose a user file </label>
+    <div class="row">
+      <input type="file" class="form-control" id="customFile"  style="width: 40%" (change)='fileChange($event)' />
+      <button (click)="uploadFile()" style="margin-left: 10px" type="button" class="btn btn-primary">Upload</button>
+      <button  color="primary" (click)="retour()"  class="btn btn-danger" style="background-color: #8B4043; margin-left: 70px">Sign Out</button>
+
+    </div>
+  </div>
+</div>
+
+    <h2>List of Simple Users  </h2>
+      <table class="table table-striped">
+
+          <thead>
+            <tr>
+
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Password</th>
+
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let u of utilisateursSimple ">
+
+              <td>{{u.nom}}</td>
+              <td>{{u.prenom}}</td>
+              <td>{{u.email}}</td>
+              <td>{{u.pwd}}</td>
+
+              <td><button (click)="deleteUtilisateur(u.id)" class="btn btn-danger">Delete</button></td>
+            </tr>
+          </tbody>
+
+      </table>
+

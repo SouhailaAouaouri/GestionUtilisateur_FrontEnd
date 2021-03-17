@@ -1,0 +1,91 @@
+<h1 class="register-heading" style="font-weight: bold">Edit Your Profile </h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+  <div class="col-md-6">
+
+
+
+    <div class="form-group">
+      <label for="nom">First Name</label>
+      <input [ngClass]="{'is-invalid':nom&&nom.errors && nom.touched}"
+             class="form-control"
+             formControlName="nom"
+             id="Nom"
+             placeholder="Nom"
+             type="text"
+      >
+      <div *ngIf="nom&&nom.hasError('required')"
+           class="invalid-feedback">
+        Nom est obligatoire
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="prenom">Last Name</label>
+      <input [ngClass]="{'is-invalid':prenom&&prenom.errors && prenom.touched}"
+             class="form-control"
+             formControlName="prenom"
+             id="prenom"
+             placeholder="prenom"
+             type="text"
+      >
+      <div *ngIf="prenom&&prenom.hasError('required')"
+           class="invalid-feedback">
+        Prenom est obligatoire
+      </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input [ngClass]="{'is-invalid':email && email.errors && email.touched}"
+             class="form-control"
+             formControlName="email"
+             id="email"
+             placeholder="Email"
+             type="text"
+      >
+      <div *ngIf="email&&email.hasError('EmailTaken')"
+           class="invalid-feedback">
+        Email is taken please enter a valid email address.
+      </div>
+      <div *ngIf="email&&email.hasError('required')"
+           class="invalid-feedback">
+        Email is required
+      </div>
+      <div *ngIf="email&&email.hasError('email')"
+           class="invalid-feedback">
+        Please enter a valid email address
+      </div>
+
+    </div>
+  </div>
+  <div class="col-md-6">
+
+
+    </div>
+
+    <div class="form-group">
+      <label for="motdepasse">Password</label>
+      <input [ngClass]="{'is-invalid':pwd&&pwd.errors && pwd.touched}"
+             class="form-control"
+             formControlName="pwd"
+             id="motdepasse"
+             placeholder="Mot de passe"
+             type="password"
+      >
+
+      <div *ngIf="pwd&&pwd.hasError('required')"
+           class="invalid-feedback">
+        Mot de passe est obligatoire
+      </div>
+
+    </div>
+
+
+    <div class="form-element">
+      <button  color="primary" type="submit" class="btn btn-success" style="background-color: darkcyan; margin-left: 20px">Save</button>
+      <button  color="primary" (click)="retour()"  class="btn btn-danger" style="background-color: #8B4043; margin-left: 70px">Sign Out </button>
+    </div>
+  </div>
+
+</form>
